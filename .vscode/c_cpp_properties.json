@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${default}",
+                "/opt/homebrew/Cellar/qtbase/6.10.1/lib/QtWidgets.framework/Versions/A/Headers",
+                "/opt/homebrew/opt/qt/include",
+                "/opt/homebrew/opt/qt/lib"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,33 @@
+project/
+├── CMakeLists.txt              # The build recipe
+├── README.txt                  # Compile/Run instructions
+├── src/                        # All Source Code (.cpp)
+│   ├── main.cpp                # Entry point (launches the App)
+│   ├── model/                  # LOGIC: Pure C++ classes (No Qt code here ideally)
+│   │   ├── shape.cpp           # Base class logic
+│   │   ├── circle.cpp          # Circle specific logic
+│   │   ├── rect.cpp            # Rectangle specific logic
+│   │   └── document.cpp        # Manages the list of shapes (The "Database")
+│   ├── io/                     # PARSING: Reading/Writing files
+│   │   ├── xml_parser.cpp      # Your custom parser logic
+│   │   └── svg_writer.cpp      # Logic to write objects back to string/file
+│   └── gui/                    # INTERFACE: Qt specific code
+│       ├── main_window.cpp     # The main window frame (menus, toolbar)
+│       ├── canvas.cpp          # The drawing area (QGraphicsView)
+│       └── tools.cpp           # Logic for "Select Tool", "Draw Tool" etc.
+├── include/                    # HEADERS: Class declarations (.h)
+│   ├── model/
+│   │   ├── shape.h
+│   │   ├── circle.h
+│   │   ├── rect.h
+│   │   └── document.h
+│   ├── io/
+│   │   ├── xml_parser.h
+│   │   └── svg_writer.h
+│   └── gui/
+│       ├── main_window.h
+│       ├── canvas.h
+│       └── tools.h
+└── tests/                      # Optional: Test SVG files
+    ├── test1.svg
+    └── test2.svg
