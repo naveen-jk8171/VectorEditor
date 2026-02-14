@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include "model/graphics_object.h"
 #include "model/rect.h"
 #include "model/circle.h"
@@ -17,4 +18,4 @@ std::pair<std::string, std::string> getKeyValue(const std::string& content, int&
 
 std::string getTag(const std::string& content, int& i);
 
-std::vector<GraphicsObject*> parse(const std::string& content);
+std::vector<std::shared_ptr<GraphicsObject>> parse(const std::string& content);

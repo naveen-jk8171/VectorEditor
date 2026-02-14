@@ -17,7 +17,6 @@ void ColorSpectrumWidget::paintEvent(QPaintEvent* event) {
     int w = width();
     int h = height();
     int barHeight = (h / 2) - 2;
-    //rainbow gradient
     QRect topRect(0, 0, w, barHeight);
     QLinearGradient rainbow(0, 0, w, 0);
     rainbow.setColorAt(0.0, Qt::red);

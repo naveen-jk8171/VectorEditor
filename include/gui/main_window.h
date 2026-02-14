@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <memory>
 #include "gui/canvas.h"
 
 class MainWindow : public QMainWindow {

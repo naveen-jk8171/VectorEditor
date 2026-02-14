@@ -1,5 +1,6 @@
 #pragma once
-#include "graphics_object.h"
+
+#include "model/graphics_object.h"
 #include <QGraphicsEllipseItem>
 #include <QGraphicsScene>
 #include <QPen>

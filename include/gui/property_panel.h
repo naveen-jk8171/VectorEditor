@@ -8,6 +8,7 @@
 #include <QStackedWidget>
 #include <QLineEdit>
 #include <QColorDialog>
+#include <memory> 
 #include "model/graphics_object.h"
 #include "gui/color_spectrum_widget.h"
 #include "gui/canvas.h"
@@ -21,12 +22,14 @@ class PropertyPanel : public QWidget {
 public:
     explicit PropertyPanel(Canvas* canvas, QWidget* parent = nullptr);
     
-    // show selected object's property
+    // Change to raw pointer since panel doesn't own object, it just edits it
     void setTargetShape(GraphicsObject* shape);
 
 signals:
-    // signal to emit when user change a property
+    // Raw pointer signals (Qt signals/slots with smart pointers can be tricky, 
+    // but passing raw pointer for identification is standard)
     void propertyChanged(GraphicsObject* shape);
+    // Passing ownership of command
     void commandGenerated(Command* command);
 
 private:
@@ -57,5 +60,7 @@ private:
     QWidget* hexPanel;
     QDoubleSpinBox* hr;
     double initialHexR;
+    
+    // Raw pointer to current object being edited (ownership remains with Canvas/Model)
     GraphicsObject* currentObject = nullptr;
 };

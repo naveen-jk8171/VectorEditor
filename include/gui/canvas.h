@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QMouseEvent>
@@ -30,12 +31,12 @@ class Canvas : public QGraphicsView {
 public:
     explicit Canvas(QWidget* parent = nullptr);
     ~Canvas();
-    void loadShapes(const std::vector<GraphicsObject*>& shapes);
-    void addShape(GraphicsObject* shape);
-    const std::vector<GraphicsObject*>& getShapes() const;
+    void loadShapes(const std::vector<std::shared_ptr<GraphicsObject>>& shapes);
+    void addShape(std::shared_ptr<GraphicsObject> shape);
+    const std::vector<std::shared_ptr<GraphicsObject>>& getShapes() const;
     void setTool(ToolType tool);
     QGraphicsScene* getScene() const;
-    void updateShape(GraphicsObject* shape);
+    void updateShape(std::shared_ptr<GraphicsObject> shape);
     void redraw();
     void refreshLayers();
     void bringToFront();
@@ -44,19 +45,19 @@ public:
     void cut();
     void paste();
     void deleteShapes();
-    void removeShape(GraphicsObject* obj, bool deleteIt = true);
+    void removeShape(std::shared_ptr<GraphicsObject> obj, bool deleteIt = true);
     int getCountItems();
     void undo();
     void redo();
-    void pushCommand(Command* command);
-    QGraphicsItem* getVisualItem(GraphicsObject* obj) const;
+    void pushCommand(std::unique_ptr<Command> command);
+    QGraphicsItem* getVisualItem(std::shared_ptr<GraphicsObject> obj) const;
     void updateSelectionHandles();
     void selectAll();
     void reset();
     bool modified;
-    std::vector<GraphicsObject*> clipboard;
+    std::vector<std::shared_ptr<GraphicsObject>> clipboard;
 signals:
-    void shapeSelected(GraphicsObject* shape);
+    void shapeSelected(std::shared_ptr<GraphicsObject> shape);
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent* event) override;
@@ -67,23 +68,22 @@ protected:
     void wheelEvent(QWheelEvent* event) override;
     bool viewportEvent(QEvent* event) override;
 private:
-    // void onFocusChanged(QGraphicsItem* newFocus, QGraphicsItem* oldFocus, Qt::FocusReason reason);
-    QGraphicsScene* scene;
-    std::vector<GraphicsObject*> m_shapes;
+    std::unique_ptr<QGraphicsScene> scene;
+    std::vector<std::shared_ptr<GraphicsObject>> m_shapes;
     ToolType current_tool;
-    GraphicsObject* current_drawing_object;
+    std::shared_ptr<GraphicsObject> current_drawing_object;
     QPointF start_point;
-    std::unordered_map<GraphicsObject*, QGraphicsItem*> m_visuals;
+    std::unordered_map<std::shared_ptr<GraphicsObject>, QGraphicsItem*> m_visuals;
     bool isPanning;
     QPoint lastPanPos;
     int pasteCount;
-    SelectionHandles* selectionHandles;
+    std::unique_ptr<SelectionHandles> selectionHandles;
     bool isResizing;
     SelectionHandles::HandlePosition dragHandle;
     QPointF resizeStartPos;
-    std::stack<Command*> undoStack;
-    std::stack<Command*> redoStack;
+    std::stack<std::unique_ptr<Command>> undoStack;
+    std::stack<std::unique_ptr<Command>> redoStack;
     QPointF dragStartPos;
-    std::unordered_map<GraphicsObject*, QPointF> initialItemPositions;
+    std::unordered_map<std::shared_ptr<GraphicsObject>, QPointF> initialItemPositions;
     std::set<Text*> emptyTextItems;
 };

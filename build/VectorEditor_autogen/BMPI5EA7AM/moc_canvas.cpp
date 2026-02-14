@@ -41,13 +41,13 @@ template <> constexpr inline auto Canvas::qt_create_metaobjectdata<qt_meta_tag_Z
         "Canvas",
         "shapeSelected",
         "",
-        "GraphicsObject*",
+        "std::shared_ptr<GraphicsObject>",
         "shape"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'shapeSelected'
-        QtMocHelpers::SignalData<void(GraphicsObject *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(std::shared_ptr<GraphicsObject>)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { 0x80000000 | 3, 4 },
         }}),
     };
@@ -73,12 +73,12 @@ void Canvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     auto *_t = static_cast<Canvas *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->shapeSelected((*reinterpret_cast<std::add_pointer_t<GraphicsObject*>>(_a[1]))); break;
+        case 0: _t->shapeSelected((*reinterpret_cast<std::add_pointer_t<std::shared_ptr<GraphicsObject>>>(_a[1]))); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (Canvas::*)(GraphicsObject * )>(_a, &Canvas::shapeSelected, 0))
+        if (QtMocHelpers::indexOfMethod<void (Canvas::*)(std::shared_ptr<GraphicsObject> )>(_a, &Canvas::shapeSelected, 0))
             return;
     }
 }
@@ -115,7 +115,7 @@ int Canvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Canvas::shapeSelected(GraphicsObject * _t1)
+void Canvas::shapeSelected(std::shared_ptr<GraphicsObject> _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
 }

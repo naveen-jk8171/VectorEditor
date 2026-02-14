@@ -1,6 +1,6 @@
 #include "commands/move.h"
 
-Move::Move(Canvas* canvas, std::vector<std::pair<GraphicsObject*, std::pair<QPointF, QPointF>>>& objsData) : canvas(canvas), objsData(objsData) {}
+Move::Move(Canvas* canvas, std::vector<std::pair<std::shared_ptr<GraphicsObject>, std::pair<QPointF, QPointF>>>& objsData) : canvas(canvas), objsData(objsData) {}
 
 void Move::undo() {
     for (auto& p : objsData) {

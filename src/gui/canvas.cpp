@@ -19,26 +19,16 @@
 #include <QCoreApplication>
 
 Canvas::Canvas(QWidget* parent) : QGraphicsView(parent) {
-    scene = new QGraphicsScene(this);
-
-    // 2. Connect this View to that Scene
-    this->setScene(scene);
+    scene = std::make_unique<QGraphicsScene>(this);
+    this->setScene(scene.get());
     scene->setBackgroundBrush(Qt::white);
-    // allow the canvas to catch key presses
     this->setFocusPolicy(Qt::StrongFocus);
-
-    // Optional: Turn on antialiasing for smoother lines
     this->setRenderHint(QPainter::Antialiasing);
-
     current_tool = ToolType::SELECT;
     this->setDragMode(QGraphicsView::RubberBandDrag);
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
-
-    // optimize scrolling performance
     setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
-
-    // for cordinate stability
     scene->setSceneRect(0, 0, 8000, 6000);
     modified = false;
     current_drawing_object = nullptr;
@@ -54,20 +44,19 @@ Canvas::Canvas(QWidget* parent) : QGraphicsView(parent) {
 }
 
 Canvas::~Canvas() {
-    for (auto* obj : clipboard) delete obj;
     clipboard.clear();
 }
 
-void Canvas::loadShapes(const std::vector<GraphicsObject*>& shapes) {
+void Canvas::loadShapes(const std::vector<std::shared_ptr<GraphicsObject>>& shapes) {
     reset();
     m_shapes = shapes;
-    for (GraphicsObject* obj : shapes) addShape(obj);
+    for (auto& obj : shapes) addShape(obj);
 }
 
-void Canvas::addShape(GraphicsObject* shape) {
+void Canvas::addShape(std::shared_ptr<GraphicsObject> shape) {
     if (shape) {
         m_shapes.push_back(shape);
-        QGraphicsItem* item = shape->draw(scene);
+        QGraphicsItem* item = shape->draw(scene.get());
         item->setZValue(m_shapes.size());
         m_visuals[shape] = item;
         modified = true;
@@ -77,10 +66,9 @@ void Canvas::addShape(GraphicsObject* shape) {
             });
         }
     }
-
 }
 
-const std::vector<GraphicsObject*>& Canvas::getShapes() const {
+const std::vector<std::shared_ptr<GraphicsObject>>& Canvas::getShapes() const {
     return m_shapes;
 }
 
@@ -114,17 +102,21 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
             ti->setTextCursor(c);
             ti->clearFocus();
             QVariant data = ti->data(0);
-            GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
-            if (Text* t = dynamic_cast<Text*>(obj)) {
+            GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
+            if (auto t = std::dynamic_pointer_cast<Text>(obj)) {
                 t->showBorder = false;
                 updateShape(t);
-                if (t->content.empty()) emptyTextItems.insert(t);
+                if (t->content.empty()) emptyTextItems.insert(t.get());
             }
         }
     }
     for (Text* t : emptyTextItems) {
         if (t->content.empty()) {
-            removeShape(t, true);
+            std::shared_ptr<GraphicsObject> objToRemove = nullptr;
+            for(auto& s : m_shapes) { if(s.get() == t) { objToRemove = s; break; } }
+            if(objToRemove) removeShape(objToRemove, true);
         }
     }
     emptyTextItems.clear();
@@ -132,8 +124,11 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         QPointF pos = mapToScene(event->pos());
         SelectionHandles::HandlePosition handle = selectionHandles->getHandleAt(pos);
         if (handle != SelectionHandles::NONE) {
-            GraphicsObject* obj = selectionHandles->targetShape;
-            if (auto* t = dynamic_cast<Text*>(obj)) {
+            GraphicsObject* rawObj = selectionHandles->targetShape.get();
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            for(auto& s : m_shapes) { if(s.get() == rawObj) { obj = s; break; } }
+            
+            if (auto t = std::dynamic_pointer_cast<Text>(obj)) {
                 if (m_visuals.count(t)) {
                     QGraphicsItem* item = m_visuals[t];
                     t->width = item->boundingRect().width();
@@ -162,8 +157,10 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         if (clickedItem) {
             for (QGraphicsItem* item : scene->selectedItems()) {
                 QVariant data = item->data(0);
-                GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
-                initialItemPositions[obj] = obj->getPosition();
+                GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+                std::shared_ptr<GraphicsObject> obj = nullptr;
+                for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
+                if(obj) initialItemPositions[obj] = obj->getPosition();
             }
         } else {
             emit shapeSelected(nullptr);
@@ -174,7 +171,7 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
     if (current_tool != ToolType::SELECT) scene->clearSelection();
     start_point = mapToScene(event->pos());
     if (current_tool == ToolType::RECTANGLE) {
-        Rectangle* r = new Rectangle();
+        auto r = std::make_shared<Rectangle>();
         r->x = start_point.x();
         r->y = start_point.y();
         r->width = 0;
@@ -185,7 +182,7 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         current_drawing_object = r;
         addShape(r);
     } else if (current_tool == ToolType::CIRCLE) {
-        Circle* c = new Circle();
+        auto c = std::make_shared<Circle>();
         c->cx = start_point.x();
         c->cy = start_point.y();
         c->r = 0;
@@ -197,7 +194,7 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         current_drawing_object = c;
         addShape(c);
     } else if (current_tool == ToolType::LINE) {
-        Line* l = new Line();
+        auto l = std::make_shared<Line>();
         l->x1 = start_point.x();
         l->x2 = start_point.x();
         l->y1 = start_point.y();
@@ -207,7 +204,7 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         current_drawing_object = l;
         addShape(l);
     } else if (current_tool == ToolType::HEXAGON) {
-        Hexagon* h = new Hexagon();
+        auto h = std::make_shared<Hexagon>();
         h->cx = start_point.x();
         h->cy = start_point.y();
         h->r = 0;
@@ -219,21 +216,21 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
         current_drawing_object = h;
         addShape(h);
     } else if (current_tool == ToolType::FREEHAND) {
-        FreeHand* f = new FreeHand();
+        auto f = std::make_shared<FreeHand>();
         f->points.emplace_back(start_point);
         f->stroke_color = "black";
         f->stroke_width = 2;
         current_drawing_object = f;
         addShape(f);
     } else if (current_tool == ToolType::TEXT) {
-        Text* t = new Text();
+        auto t = std::make_shared<Text>();
         t->showBorder = true;
         t->x = start_point.x();
         t->y = start_point.y();
         t->fontSize = 10;
         t->fill_color = "black";
         t->content = "";
-        emptyTextItems.insert(t);
+        emptyTextItems.insert(t.get());
         current_drawing_object = t;
         addShape(t);
     }
@@ -242,22 +239,27 @@ void Canvas::mousePressEvent(QMouseEvent* event) {
 void Canvas::mouseMoveEvent(QMouseEvent* event) {
     if (isResizing && selectionHandles) {
         QPointF currPos = mapToScene(event->pos());
-        GraphicsObject* obj = selectionHandles->targetShape;
-        if (auto* r = dynamic_cast<Rectangle*>(obj)) {
-            r->resizeShape(currPos, resizeStartPos, dragHandle);
-        } else if (auto* c = dynamic_cast<Circle*>(obj)) {
-            c->resizeShape(currPos, resizeStartPos, dragHandle);
-        } else if (auto* l = dynamic_cast<Line*>(obj)) {
-            l->resizeShape(currPos, resizeStartPos, dragHandle);
-        } else if (auto* h = dynamic_cast<Hexagon*>(obj)) {
-            h->resizeShape(currPos, resizeStartPos, dragHandle);
-        } else if (auto* t = dynamic_cast<Text*>(obj)) {
-            t->resizeShape(currPos, resizeStartPos, dragHandle);
+        GraphicsObject* rawObj = selectionHandles->targetShape.get();
+        std::shared_ptr<GraphicsObject> obj = nullptr;
+        for(auto& s : m_shapes) { if(s.get() == rawObj) { obj = s; break; } }
+
+        if (obj) {
+            if (auto r = std::dynamic_pointer_cast<Rectangle>(obj)) {
+                r->resizeShape(currPos, resizeStartPos, dragHandle);
+            } else if (auto c = std::dynamic_pointer_cast<Circle>(obj)) {
+                c->resizeShape(currPos, resizeStartPos, dragHandle);
+            } else if (auto l = std::dynamic_pointer_cast<Line>(obj)) {
+                l->resizeShape(currPos, resizeStartPos, dragHandle);
+            } else if (auto h = std::dynamic_pointer_cast<Hexagon>(obj)) {
+                h->resizeShape(currPos, resizeStartPos, dragHandle);
+            } else if (auto t = std::dynamic_pointer_cast<Text>(obj)) {
+                t->resizeShape(currPos, resizeStartPos, dragHandle);
+            }
+            resizeStartPos = currPos;
+            updateShape(obj);
+            selectionHandles->updateHandles();
+            emit shapeSelected(obj);
         }
-        resizeStartPos = currPos;
-        updateShape(obj);
-        selectionHandles->updateHandles();
-        emit shapeSelected(obj);
         return;
     }
     if (current_tool != ToolType::SELECT) scene->clearSelection();
@@ -279,7 +281,7 @@ void Canvas::mouseMoveEvent(QMouseEvent* event) {
     }
     QPointF current_point = mapToScene(event->pos());
     if (current_tool == ToolType::RECTANGLE) {
-        Rectangle* r = dynamic_cast<Rectangle*>(current_drawing_object);
+        auto r = std::dynamic_pointer_cast<Rectangle>(current_drawing_object);
         if (r) {
             double minX = std::min(start_point.x(), current_point.x());
             double minY = std::min(start_point.y(), current_point.y());
@@ -289,7 +291,7 @@ void Canvas::mouseMoveEvent(QMouseEvent* event) {
             r->height = std::abs(start_point.y()-current_point.y());
         }
     } else if (current_tool == ToolType::CIRCLE) {
-        Circle* c = dynamic_cast<Circle*>(current_drawing_object);
+        auto c = std::dynamic_pointer_cast<Circle>(current_drawing_object);
         if (c) {
             double dx = current_point.x()-start_point.x();
             double dy = current_point.y()-start_point.y();
@@ -298,13 +300,13 @@ void Canvas::mouseMoveEvent(QMouseEvent* event) {
             c->height = c->width;
         }
     } else if (current_tool == ToolType::LINE) {
-        Line* l = dynamic_cast<Line*>(current_drawing_object);
+        auto l = std::dynamic_pointer_cast<Line>(current_drawing_object);
         if (l) {
             l->x2 = current_point.x();
             l->y2 = current_point.y();
         }
     } else if (current_tool == ToolType::HEXAGON) {
-        Hexagon* h = dynamic_cast<Hexagon*>(current_drawing_object);
+        auto h = std::dynamic_pointer_cast<Hexagon>(current_drawing_object);
         if (h) {
             double dx = current_point.x()-start_point.x();
             double dy = current_point.y()-start_point.y();
@@ -313,12 +315,12 @@ void Canvas::mouseMoveEvent(QMouseEvent* event) {
             h->height = h->r;
         }
     } else if (current_tool == ToolType::FREEHAND) {
-        FreeHand* f = dynamic_cast<FreeHand*>(current_drawing_object);
+        auto f = std::dynamic_pointer_cast<FreeHand>(current_drawing_object);
         if (f) {
             f->points.push_back(current_point);
         }
     } else if (current_tool == ToolType::TEXT) {
-        Text* t = dynamic_cast<Text*>(current_drawing_object);
+        auto t = std::dynamic_pointer_cast<Text>(current_drawing_object);
         if (t) {
             double minX = std::min(start_point.x(), current_point.x());
             double minY = std::min(start_point.y(), current_point.y());
@@ -351,17 +353,19 @@ void Canvas::mouseReleaseEvent(QMouseEvent* event) {
             updateSelectionHandles();
             return;
         }
-        std::vector<std::pair<GraphicsObject*, std::pair<QPointF, QPointF>>> objsData;
+        std::vector<std::pair<std::shared_ptr<GraphicsObject>, std::pair<QPointF, QPointF>>> objsData;
         for (QGraphicsItem* item : scene->selectedItems()) {
             QVariant data = item->data(0);
-            GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
+            GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
             if (obj && initialItemPositions.count(obj)) {
                 QPointF oldPos = initialItemPositions[obj];
                 QPointF newPos;
-                if (Line* l = dynamic_cast<Line*>(obj)) {
+                if (auto l = std::dynamic_pointer_cast<Line>(obj)) {
                     QGraphicsLineItem* line = dynamic_cast<QGraphicsLineItem*>(item);
                     newPos = line->mapToScene(line->line().p1());
-                } else if (dynamic_cast<Hexagon*>(obj) || dynamic_cast<FreeHand*>(obj)) {
+                } else if (std::dynamic_pointer_cast<Hexagon>(obj) || std::dynamic_pointer_cast<FreeHand>(obj)) {
                     newPos = item->mapToScene(obj->getPosition());
                 } else {
                     newPos = item->mapToScene(0, 0);
@@ -377,13 +381,13 @@ void Canvas::mouseReleaseEvent(QMouseEvent* event) {
             }
         }
         if (!objsData.empty()) {
-            Move* moveCommand = new Move(this, objsData);
-            pushCommand(moveCommand);
+            auto moveCommand = std::make_unique<Move>(this, objsData);
+            pushCommand(std::move(moveCommand));
         }
         return;
     }
     if (current_tool == ToolType::TEXT && current_drawing_object) {
-        Text* t = dynamic_cast<Text*>(current_drawing_object);
+        auto t = std::dynamic_pointer_cast<Text>(current_drawing_object);
         if (t && m_visuals.count(t)) {
             QGraphicsItem* item = m_visuals[t];
             QGraphicsTextItem* textItem = dynamic_cast<QGraphicsTextItem*>(item);
@@ -408,8 +412,10 @@ void Canvas::mouseDoubleClickEvent(QMouseEvent* event) {
         QGraphicsTextItem* ti = dynamic_cast<QGraphicsTextItem*>(item);
         if (ti) {
             QVariant data = ti->data(0);
-            GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
-            Text* t = dynamic_cast<Text*>(obj);
+            GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
+            auto t = std::dynamic_pointer_cast<Text>(obj);
             if (t) {
                 t->showBorder = true;
                 updateShape(t);
@@ -425,10 +431,10 @@ void Canvas::mouseDoubleClickEvent(QMouseEvent* event) {
 }
 
 QGraphicsScene* Canvas::getScene() const {
-    return scene;
+    return scene.get();
 }
 
-void Canvas::updateShape(GraphicsObject* shape) {
+void Canvas::updateShape(std::shared_ptr<GraphicsObject> shape) {
     if (!shape) return;
     if (m_visuals.find(shape) != m_visuals.end()) {
         QGraphicsItem* item = m_visuals[shape];
@@ -461,14 +467,14 @@ void Canvas::keyPressEvent(QKeyEvent* event) {
 void Canvas::redraw() {
     scene->clear();
     m_visuals.clear();
-    for (GraphicsObject* obj : m_shapes) {
-        QGraphicsItem* item = obj->draw(scene);
+    for (auto& obj : m_shapes) {
+        QGraphicsItem* item = obj->draw(scene.get());
         m_visuals[obj] = item;
     }
 }
 
 void Canvas::refreshLayers() {
-    for (int i = 0; i < m_shapes.size(); i++) {
+    for (int i = 0; i < (int)m_shapes.size(); i++) {
         m_visuals[m_shapes[i]]->setZValue(i);
     }
 }
@@ -477,7 +483,9 @@ void Canvas::bringToFront() {
     if (scene->selectedItems().isEmpty()) return;
     QGraphicsItem* item = scene->selectedItems().first();
     QVariant data = item->data(0);
-    GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
+    GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+    std::shared_ptr<GraphicsObject> obj = nullptr;
+    for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
     if (obj) {
         auto it = std::find(m_shapes.begin(), m_shapes.end(), obj);
         if (it != m_shapes.end() && it != m_shapes.end()-1) {
@@ -495,7 +503,9 @@ void Canvas::sendToBack() {
     if (scene->selectedItems().isEmpty()) return;
     QGraphicsItem* item = scene->selectedItems().first();
     QVariant data = item->data(0);
-    GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
+    GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+    std::shared_ptr<GraphicsObject> obj = nullptr;
+    for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
     if (obj) {
         auto it = std::find(m_shapes.begin(), m_shapes.end(), obj);
         if (it != m_shapes.end() && it != m_shapes.begin()) {
@@ -521,177 +531,177 @@ void Canvas::wheelEvent(QWheelEvent* event) {
 }
 
 void Canvas::copy() {
-    for (auto& obj : clipboard) delete obj;
     clipboard.clear();
     pasteCount = 1;
     QList<QGraphicsItem*> items = scene->selectedItems();
     for (auto& item : items) {
         QVariant data = item->data(0);
-        GraphicsObject* shape = static_cast<GraphicsObject*>(data.value<void*>());
+        GraphicsObject* shapePtr = static_cast<GraphicsObject*>(data.value<void*>());
+        std::shared_ptr<GraphicsObject> shape = nullptr;
+        for(auto& s : m_shapes) { if(s.get() == shapePtr) { shape = s; break; } }
         if (shape) {
-            clipboard.push_back(shape->clone());
+            clipboard.push_back(std::shared_ptr<GraphicsObject>(shape->clone()));
         }
     }
 }
 
 void Canvas::cut() {
-    for (auto& obj : clipboard) delete obj;
     clipboard.clear();
     pasteCount = 1;
     QList<QGraphicsItem*> items = scene->selectedItems();
-    std::vector<GraphicsObject*> objs;
+    std::vector<std::shared_ptr<GraphicsObject>> objs;
     for (auto& item : items) {
         QVariant data = item->data(0);
-        GraphicsObject* shape = static_cast<GraphicsObject*>(data.value<void*>());
+        GraphicsObject* shapePtr = static_cast<GraphicsObject*>(data.value<void*>());
+        std::shared_ptr<GraphicsObject> shape = nullptr;
+        for(auto& s : m_shapes) { if(s.get() == shapePtr) { shape = s; break; } }
         if (shape) {
-            clipboard.push_back(shape->clone());
+            clipboard.push_back(std::shared_ptr<GraphicsObject>(shape->clone()));
             objs.push_back(shape);
             removeShape(shape, false);
         }
     }
     if (!objs.empty()) {
-        Cut* cutCommand = new Cut(this, objs);
-        pushCommand(cutCommand);
+        auto cutCommand = std::make_unique<Cut>(this, objs);
+        pushCommand(std::move(cutCommand));
     }
 }
 
 void Canvas::paste() {
     if (clipboard.empty()) return;
-    // clear the selectrion so to select the newly pasted items
     scene->clearSelection();
-    std::vector<GraphicsObject*> objs;
-    for (GraphicsObject* shape : clipboard) {
-        GraphicsObject* newShape = shape->clone();
+    std::vector<std::shared_ptr<GraphicsObject>> objs;
+    for (auto& shape : clipboard) {
+        std::shared_ptr<GraphicsObject> newShape(shape->clone());
         objs.emplace_back(newShape);
-        // slight offset to user know it got pasted
         int offset = 20*pasteCount;
-        if (auto* r = dynamic_cast<Rectangle*>(newShape)) {
+        if (auto r = std::dynamic_pointer_cast<Rectangle>(newShape)) {
             r->x += offset;
             r->y += offset;
-        } else if (auto* c = dynamic_cast<Circle*>(newShape)) {
+        } else if (auto c = std::dynamic_pointer_cast<Circle>(newShape)) {
             c->cx += offset;
             c->cy += offset;
-        } else if (auto* l = dynamic_cast<Line*>(newShape)) {
+        } else if (auto l = std::dynamic_pointer_cast<Line>(newShape)) {
             l->x1 += offset;
             l->x2 += offset;
             l->y1 += offset;
             l->y2 += offset;
-        } else if (auto* h = dynamic_cast<Hexagon*>(newShape)) {
+        } else if (auto h = std::dynamic_pointer_cast<Hexagon>(newShape)) {
             h->cx += offset;
             h->cy += offset;
         }
         addShape(newShape);
-        // make the newly drawn shape selected
         m_visuals[newShape]->setSelected(true);
     }
     if (!objs.empty()) {
-        Paste* pasteCommand = new Paste(this, objs);
-        pushCommand(pasteCommand);
+        auto pasteCommand = std::make_unique<Paste>(this, objs);
+        pushCommand(std::move(pasteCommand));
     }
     updateSelectionHandles();
     pasteCount++;
 }
 
 void Canvas::deleteShapes() {
-    std::vector<GraphicsObject*> objs;
+    std::vector<std::shared_ptr<GraphicsObject>> objs;
     for (QGraphicsItem* item : scene->selectedItems()) {
         if (!item || !item->scene()) continue;
         QVariant data = item->data(0);
-        GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
+        GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+        std::shared_ptr<GraphicsObject> obj = nullptr;
+        for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
         if (obj) {
             removeShape(obj, false);
             objs.emplace_back(obj);
         }
-        delete item;
     }
-    Delete* deleteCommand = new Delete(this, objs);
-    pushCommand(deleteCommand);
-    updateSelectionHandles();
-    emit shapeSelected(nullptr);
+    if (!objs.empty()) {
+        auto deleteCommand = std::make_unique<Delete>(this, objs);
+        pushCommand(std::move(deleteCommand));
+        updateSelectionHandles();
+        emit shapeSelected(nullptr);
+    }
 }
 
 
 int Canvas::getCountItems() {
-    return m_shapes.size();
+    return (int)m_shapes.size();
 }
 
 void Canvas::updateSelectionHandles() {
     if (selectionHandles) {
-        scene->removeItem(selectionHandles);
-        delete selectionHandles;
-        selectionHandles = nullptr;
+        scene->removeItem(selectionHandles.get());
+        selectionHandles.reset();
     }
     if (scene->selectedItems().size() == 1) {
         QGraphicsItem* item = scene->selectedItems().first();
         QVariant data = item->data(0);
-        GraphicsObject* obj = static_cast<GraphicsObject*>(data.value<void*>());
+        GraphicsObject* objPtr = static_cast<GraphicsObject*>(data.value<void*>());
+        std::shared_ptr<GraphicsObject> obj = nullptr;
+        for(auto& s : m_shapes) { if(s.get() == objPtr) { obj = s; break; } }
         if (obj) {
-            selectionHandles = new SelectionHandles(obj, this);
-            scene->addItem(selectionHandles);
+            selectionHandles = std::make_unique<SelectionHandles>(obj, this);
+            scene->addItem(selectionHandles.get());
         }
     }
 }
 
-QGraphicsItem* Canvas::getVisualItem(GraphicsObject* obj) const {
+QGraphicsItem* Canvas::getVisualItem(std::shared_ptr<GraphicsObject> obj) const {
     if (m_visuals.count(obj)) {
         return m_visuals.at(obj);
     }
     return nullptr;
 }
 
-void Canvas::removeShape(GraphicsObject* obj, bool deleteIt) {
+void Canvas::removeShape(std::shared_ptr<GraphicsObject> obj, bool deleteIt) {
     if (!obj) return;
     if (m_visuals.count(obj)) {
         QGraphicsItem* item = m_visuals[obj];
         scene->removeItem(item);
-        if (deleteIt) delete item;
+        delete item;
         m_visuals.erase(obj);
     }
     auto it = std::find(m_shapes.begin(), m_shapes.end(), obj);
     if (it != m_shapes.end()) m_shapes.erase(it);
-    if (deleteIt) delete obj;
     modified = true;
     updateSelectionHandles();
 }
 
 void Canvas::undo() {
     if (undoStack.empty()) return;
-    Command* command = undoStack.top();
-    if (Paste* p = dynamic_cast<Paste*>(command)) pasteCount = std::max(0, pasteCount-1);
+    Command* commandPtr = undoStack.top().get();
+    if (dynamic_cast<Paste*>(commandPtr)) pasteCount = std::max(0, pasteCount-1);
+    std::unique_ptr<Command> command = std::move(undoStack.top());
     undoStack.pop();
     command->undo();
-    redoStack.push(command);
+    redoStack.push(std::move(command));
 }
 
 void Canvas::redo() {
     if (redoStack.empty()) return;
-    Command* command = redoStack.top();
-    if (Paste* p = dynamic_cast<Paste*>(command)) pasteCount++;
+    Command* commandPtr = redoStack.top().get();
+    if (dynamic_cast<Paste*>(commandPtr)) pasteCount++;
+    std::unique_ptr<Command> command = std::move(redoStack.top());
     redoStack.pop();
     command->redo();
-    undoStack.push(command);
+    undoStack.push(std::move(command));
 }
 
-void Canvas::pushCommand(Command* command) {
-    undoStack.push(command);
+void Canvas::pushCommand(std::unique_ptr<Command> command) {
+    undoStack.push(std::move(command));
     while (!redoStack.empty()) {
-        Command* command = redoStack.top();
         redoStack.pop();
-        delete command;
     }
 }
 
 void Canvas::selectAll() {
-    for (GraphicsObject* obj : m_shapes) m_visuals[obj]->setSelected(true);
+    for (auto& obj : m_shapes) m_visuals[obj]->setSelected(true);
 }
 
 void Canvas::reset() {
     current_drawing_object = nullptr;
     if (selectionHandles) {
-        delete selectionHandles;
-        selectionHandles = nullptr;
+        selectionHandles.reset();
     }
-    for (GraphicsObject* obj : m_shapes) delete obj;
     m_shapes.clear();
     m_visuals.clear();
     scene->clear();

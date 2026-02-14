@@ -31,7 +31,6 @@ set(SOURCES
     # GUI (Interface)
     src/gui/main_window.cpp
     src/gui/canvas.cpp
-    src/gui/tools.cpp
     src/gui/property_panel.cpp
     src/gui/color_spectrum_widget.cpp
     src/gui/selection_handle.cpp

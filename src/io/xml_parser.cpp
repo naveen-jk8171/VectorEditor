@@ -37,8 +37,8 @@ std::string getTag(const std::string& content, int& i) {
     return tag;
 }
 
-std::vector<GraphicsObject*> parse(const std::string& content) {
-    std::vector<GraphicsObject*> shapes;
+std::vector<std::shared_ptr<GraphicsObject>> parse(const std::string& content) {
+    std::vector<std::shared_ptr<GraphicsObject>> shapes;
     int i = 0;
     while (i < content.size()) {
         nextTag(content, i);
@@ -49,17 +49,17 @@ std::vector<GraphicsObject*> parse(const std::string& content) {
         }
         if (i >= content.size()) break;
         std::string word = getTag(content, i);
-        GraphicsObject* newShape;
+        std::shared_ptr<GraphicsObject> newShape = nullptr;
         if (word == "rect") {
-            newShape = new Rectangle;
+            newShape = std::make_shared<Rectangle>();
         } else if (word == "circle") {
-            newShape = new Circle;
+            newShape = std::make_shared<Circle>();
         } else if (word == "line") {
-            newShape = new Line;
+            newShape = std::make_shared<Line>();
         } else if (word == "polygon") {
-            newShape = new Hexagon;
+            newShape = std::make_shared<Hexagon>();
         } else if (word == "text") {
-            newShape = new Text;
+            newShape = std::make_shared<Text>();
         } else {
             continue;
         }
@@ -67,7 +67,7 @@ std::vector<GraphicsObject*> parse(const std::string& content) {
             std::pair<std::string, std::string> keyValue = getKeyValue(content, i);
             newShape->setAttribute(keyValue.first, keyValue.second);
         }
-        if (Text* t = dynamic_cast<Text*>(newShape)) {
+        if (auto t = std::dynamic_pointer_cast<Text>(newShape)) {
             while (content[i] != '>') i++;
             i++;
             std::string textContent = "";

@@ -4,6 +4,8 @@
 #include <QGraphicsScene>
 #include <QFont>
 
+class Canvas;
+
 class Text : public GraphicsObject {
 public:
     double x = 0, y = 0, width = -1;

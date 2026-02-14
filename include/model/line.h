@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics_object.h"
+#include "model/graphics_object.h"
 #include <QGraphicsLineItem>
 #include <QGraphicsScene>
 #include <QPen>

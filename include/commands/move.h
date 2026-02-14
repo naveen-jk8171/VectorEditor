@@ -1,5 +1,6 @@
 #pragma once
-
+#include <memory>
+#include <vector>
 #include "commands/command.h"
 #include "model/graphics_object.h"
 #include "gui/canvas.h"
@@ -7,10 +8,10 @@
 
 class Move : public Command {
 public:
-    Move(Canvas* canvas, std::vector<std::pair<GraphicsObject*, std::pair<QPointF, QPointF>>>& objsData);
+    Move(Canvas* canvas, std::vector<std::pair<std::shared_ptr<GraphicsObject>, std::pair<QPointF, QPointF>>>& objsData);
     void undo() override;
     void redo() override;
 private:
     Canvas* canvas;
-    std::vector<std::pair<GraphicsObject*, std::pair<QPointF, QPointF>>> objsData;
+    std::vector<std::pair<std::shared_ptr<GraphicsObject>, std::pair<QPointF, QPointF>>> objsData;
 };

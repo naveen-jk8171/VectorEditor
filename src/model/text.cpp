@@ -80,7 +80,6 @@ void Text::resizeShape(const QPointF& currPos, const QPointF& lastPos, Selection
     double px = x + width;
     double py = y + height;
     int lineCount = visualItem->document()->lineCount();
-    double h1 = height/(double)lineCount;
     if (handle == SelectionHandles::TOPLEFT) {
         width -= dx;
         height -= dy;

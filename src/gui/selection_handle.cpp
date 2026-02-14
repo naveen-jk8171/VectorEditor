@@ -4,16 +4,16 @@
 #include "model/freehand.h"
 #include <QGraphicsScene>
 
-SelectionHandles::SelectionHandles(GraphicsObject* targetShape, Canvas* canvas) : targetShape(targetShape), canvas(canvas) {
+SelectionHandles::SelectionHandles(std::shared_ptr<GraphicsObject> targetShape, Canvas* canvas) : targetShape(targetShape), canvas(canvas) {
     for (int i = 0; i < 8; i++) {
-        QGraphicsRectItem* handle = new QGraphicsRectItem(-HANDLE_SIZE/2, -HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE); // -handlesize/2 so that selectionhandles group itself has pos(0, 0), so center point is (0, 0)
+        QGraphicsRectItem* handle = new QGraphicsRectItem(-HANDLE_SIZE/2, -HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE); 
         handle->setBrush(Qt::white);
         QPen p(Qt::black);
         p.setWidth(0); 
         handle->setPen(p);
         handle->setFlag(QGraphicsItem::ItemIgnoresTransformations);
         handle->setZValue(INT_MAX);
-        setZValue(INT_MAX); // set the z value of whole group
+        setZValue(INT_MAX); 
         addToGroup(handle);
         m_handles.push_back(handle);
     }
@@ -31,7 +31,7 @@ void SelectionHandles::updateHandles() {
     double y = topLeft.y();
     double w = bottomRight.x()-topLeft.x();
     double h = bottomRight.y() - topLeft.y();
-    if (auto* l = dynamic_cast<Line*>(targetShape)) {
+    if (auto l = std::dynamic_pointer_cast<Line>(targetShape)) {
         QGraphicsLineItem* visualLine = dynamic_cast<QGraphicsLineItem*>(targetItem);
         if (visualLine) {
             QLineF localLine = visualLine->line();
@@ -44,7 +44,7 @@ void SelectionHandles::updateHandles() {
             m_handles[RIGHT]->setVisible(true);
         }
         return;
-    } else if (auto* f = dynamic_cast<FreeHand*>(targetShape)) {
+    } else if (auto f = std::dynamic_pointer_cast<FreeHand>(targetShape)) {
         return;
     }
     placeHandle(TOPLEFT, x, y);
@@ -59,8 +59,6 @@ void SelectionHandles::updateHandles() {
 
 void SelectionHandles::placeHandle(int ind, double x, double y) {
     m_handles[ind]->setPos(x, y);
-    // Since the rect is defined as -4 to +4, setting pos to (x,y)
-    // puts the center of the square exactly at (x,y).
 }
 
 SelectionHandles::HandlePosition SelectionHandles::getHandleAt(const QPointF& pos) {

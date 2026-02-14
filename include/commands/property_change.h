@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "commands/command.h"
 #include <QVariant>
 #include "model/graphics_object.h"
@@ -10,13 +11,13 @@ enum class Property {
 
 class PropertyChange : public Command {
 public:
-    PropertyChange(Canvas* canvas, GraphicsObject* obj, Property p, const QVariant& oldval, const QVariant& newval);
+    PropertyChange(Canvas* canvas, std::shared_ptr<GraphicsObject> obj, Property p, const QVariant& oldval, const QVariant& newval);
     void undo() override;
     void redo() override;
 private:
     void setValue(const QVariant& value);
     Canvas* canvas;
-    GraphicsObject* obj;
+    std::shared_ptr<GraphicsObject> obj;
     Property property;
     QVariant oldval;
     QVariant newval;

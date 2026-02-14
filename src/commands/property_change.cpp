@@ -4,7 +4,7 @@
 #include "model/hexagon.h"
 #include "model/text.h"
 
-PropertyChange::PropertyChange(Canvas* canvas, GraphicsObject* obj, Property p, const QVariant& oldval, const QVariant& newval) : obj(obj), property(p), oldval(oldval), newval(newval), canvas(canvas) {}
+PropertyChange::PropertyChange(Canvas* canvas, std::shared_ptr<GraphicsObject> obj, Property p, const QVariant& oldval, const QVariant& newval) : obj(obj), property(p), oldval(oldval), newval(newval), canvas(canvas) {}
 
 void PropertyChange::undo() {
     setValue(oldval);
@@ -22,7 +22,7 @@ void PropertyChange::setValue(const QVariant& val) {
         obj->stroke_width = val.toDouble();
     } else if (property == Property::FILLCOLOR) {
         obj->fill_color = val.toString().toStdString();
-    } else if (auto* r = dynamic_cast<Rectangle*>(obj)) {
+    } else if (auto r = std::dynamic_pointer_cast<Rectangle>(obj)) {
         if (property == Property::RECTRX) {
             r->rx = val.toDouble();
         } else if (property == Property::RECTRY) {
@@ -32,15 +32,15 @@ void PropertyChange::setValue(const QVariant& val) {
         } else if (property == Property::RECTHEIGHT) {
             r->height = val.toDouble();
         }
-    } else if (auto* c = dynamic_cast<Circle*>(obj)) {
+    } else if (auto c = std::dynamic_pointer_cast<Circle>(obj)) {
         if (property == Property::CIRCLER) c->r = val.toDouble();
-    } else if (auto* t = dynamic_cast<Text*>(obj)) {
+    } else if (auto t = std::dynamic_pointer_cast<Text>(obj)) {
         if (property == Property::TEXTCONTENT) {
             t->content = val.toString().toStdString();
         } else if (property == Property::FONTSIZE) {
             t->fontSize = val.toInt();
         }
-    } else if (auto* h = dynamic_cast<Hexagon*>(obj)) {
+    } else if (auto h = std::dynamic_pointer_cast<Hexagon>(obj)) {
         if (property == Property::HEXAGONR) h->r = val.toDouble();
     }
     canvas->updateShape(obj);

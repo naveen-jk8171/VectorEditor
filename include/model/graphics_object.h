@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include "gui/selection_handle.h"
 #include <math.h>
 #include <QPointF>

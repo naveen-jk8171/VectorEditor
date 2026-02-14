@@ -3,6 +3,7 @@
 #include <QObject>
 #include <vector>
 #include <QGraphicsItemGroup>
+#include <memory>
 
 class Canvas;
 class GraphicsObject;
@@ -22,12 +23,10 @@ public:
         BOTTOMRIGHT,
         NONE
     };
-    SelectionHandles(GraphicsObject* targetShape, Canvas* Canvas);
-    // updte handle position to the target shape
+    SelectionHandles(std::shared_ptr<GraphicsObject> targetShape, Canvas* canvas);
     void updateHandles();
-    // check if mouse is over a handle
     HandlePosition getHandleAt(const QPointF& pos);
-    GraphicsObject* targetShape;
+    std::shared_ptr<GraphicsObject> targetShape;
 private:
     void placeHandle(int ind, double x, double y);
     Canvas* canvas;

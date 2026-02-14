@@ -142,15 +142,21 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     PropertyPanel* panel = new PropertyPanel(canvas, dock);
     dock->setWidget(panel);
     addDockWidget(Qt::RightDockWidgetArea, dock);
-    connect(canvas, &Canvas::shapeSelected, this, [panel](GraphicsObject* shape) {
-        panel->setTargetShape(shape);
+    connect(canvas, &Canvas::shapeSelected, this, [panel](std::shared_ptr<GraphicsObject> shape) {
+        panel->setTargetShape(shape.get());
     });
-    connect(panel, &PropertyPanel::propertyChanged, this, [this](GraphicsObject* shape){
-        canvas->updateShape(shape);
-        canvas->updateSelectionHandles();
+    connect(panel, &PropertyPanel::propertyChanged, this, [this](GraphicsObject* shapePtr){
+        std::shared_ptr<GraphicsObject> shape = nullptr;
+        const auto& shapes = canvas->getShapes();
+        for(const auto& s : shapes) { if(s.get() == shapePtr) { shape = s; break; } }
+        if(shape) {
+            canvas->updateShape(shape);
+            canvas->updateSelectionHandles();
+        }
     });
-    connect(panel, &PropertyPanel::commandGenerated, this, [this](Command* command) {
-        canvas->pushCommand(command);
+    // Updated connection to handle pointer transfer safely in Qt signal/slot context
+    connect(panel, &PropertyPanel::commandGenerated, this, [this](Command* commandPtr) {
+        canvas->pushCommand(std::unique_ptr<Command>(commandPtr));
     });
 }
 
@@ -170,7 +176,10 @@ bool MainWindow::saveFile() {
     if (filePath.empty()) {
         return saveAsFile();
     }
-    saveSVGFile(canvas->getShapes(), filePath);
+    std::vector<std::shared_ptr<GraphicsObject>> rawShapes;
+    const auto& shapes = canvas->getShapes();
+    for (const auto& s : shapes) rawShapes.push_back(s);
+    saveSVGFile(rawShapes, filePath);
     canvas->modified = false;
     setWindowTitle(QString::fromStdString("Vector Editor - " + filePath));
     return true;
@@ -192,8 +201,8 @@ void MainWindow::openFile() {
         if (!fileName.isEmpty()) {
             filePath = fileName.toStdString();
             std::string content = readSVGFile(filePath);
-            std::vector<GraphicsObject*> shapes = parse(content);
-            canvas->loadShapes(shapes);
+            std::vector<std::shared_ptr<GraphicsObject>> rawShapes = parse(content);
+            canvas->loadShapes(rawShapes);
             setWindowTitle(QString::fromStdString("Vector Editor - " + filePath));
         }
     }

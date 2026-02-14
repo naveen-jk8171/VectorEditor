@@ -28,10 +28,17 @@ PropertyPanel::PropertyPanel(Canvas* canvas, QWidget* parent) : QWidget(parent),
         if (currentObject) {
             double newval = strokeWidthEdit->value();
             if (initialStrokeWidth == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, currentObject, Property::STROKEWIDTH, initialStrokeWidth, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialStrokeWidth = newval;
+            // Find shared_ptr
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                 auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::STROKEWIDTH, initialStrokeWidth, newval);
+                 propertyChangeCommand->redo();
+                 emit commandGenerated(propertyChangeCommand.release());
+                 initialStrokeWidth = newval;
+            }
         }
     });
     panel = new QStackedWidget();
@@ -78,10 +85,17 @@ void PropertyPanel::setPanel() {
         if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
             double newval = rxSpin->value();
             if (initialRx == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, r, Property::RECTRX, initialRx, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialRx = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTRX, initialRx, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialRx = newval;
+            }
         }
     });
     connect(rySpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this] (double val) {
@@ -94,10 +108,17 @@ void PropertyPanel::setPanel() {
         if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
             double newval = rySpin->value();
             if (initialRy == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, r, Property::RECTRY, initialRy, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialRy = newval;
+
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTRY, initialRy, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialRy = newval;
+            }
         }
     });
     connect(rWidth, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this] (double val) {
@@ -110,10 +131,17 @@ void PropertyPanel::setPanel() {
         if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
             double newval = rWidth->value();
             if (initialRWidth == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, r, Property::RECTWIDTH, initialRWidth, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialRWidth = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTWIDTH, initialRWidth, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialRWidth = newval;
+            }
         }
     });
     connect(rHeight, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this] (double val) {
@@ -126,10 +154,17 @@ void PropertyPanel::setPanel() {
         if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
             double newval = rHeight->value();
             if (initialRHeight == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, r, Property::RECTHEIGHT, initialRHeight, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialRHeight = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTHEIGHT, initialRHeight, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialRHeight = newval;
+            }
         }
     });
 
@@ -151,10 +186,17 @@ void PropertyPanel::setPanel() {
         if (auto* c = dynamic_cast<Circle*>(currentObject)) {
             double newval = cr->value();
             if (initialCircleR == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, c, Property::CIRCLER, initialCircleR, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialCircleR = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::CIRCLER, initialCircleR, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialCircleR = newval;
+            }
         }
     });
 
@@ -177,10 +219,20 @@ void PropertyPanel::setPanel() {
         if (auto* t = dynamic_cast<Text*>(currentObject)) {
             std::string newText = txtContent->text().toStdString();
             if (initialText == newText) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, t, Property::TEXTCONTENT, QString::fromStdString(initialText), QString::fromStdString(newText));
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialText = newText;
+            // No easy conversion from QString to variant for property change, assuming string works
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                // Warning: PropertyChange might need variant or specific overloads. 
+                // Assuming PropertyChange constructor handles QString or QVariant
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::TEXTCONTENT, QString::fromStdString(initialText), QString::fromStdString(newText));
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialText = newText;
+            }
         }
     });
     connect(fontSizeEdit, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int val) {
@@ -193,10 +245,17 @@ void PropertyPanel::setPanel() {
         if (auto* t = dynamic_cast<Text*>(currentObject)) {
             int newval = fontSizeEdit->value();
             if (initialFontSize == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, t, Property::FONTSIZE, initialFontSize, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialFontSize = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::FONTSIZE, initialFontSize, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialFontSize = newval;
+            }
         }
     });
 
@@ -217,10 +276,17 @@ void PropertyPanel::setPanel() {
         if (auto* h = dynamic_cast<Hexagon*>(currentObject)) {
             double newval = hr->value();
             if (initialHexR == newval) return;
-            PropertyChange* propertyChangeCommand = new PropertyChange(canvas, h, Property::HEXAGONR, initialHexR, newval);
-            emit commandGenerated(propertyChangeCommand);
-            propertyChangeCommand->redo();
-            initialHexR = newval;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::HEXAGONR, initialHexR, newval);
+                propertyChangeCommand->redo();
+                emit commandGenerated(propertyChangeCommand.release());
+                initialHexR = newval;
+            }
         }
     });
 }
@@ -248,11 +314,18 @@ void PropertyPanel::addColorSection(QLayout* layout, const QString& label, bool 
             std::string newVal = color.toStdString();
             if (oldVal == newVal) return;
             Property type = isStroke ? Property::STROKECOLOR : Property::FILLCOLOR;
-            PropertyChange* cmd = new PropertyChange(canvas, currentObject, type, QString::fromStdString(oldVal), QString::fromStdString(newVal));
-            emit commandGenerated(cmd);
-            cmd->redo();
-            emit propertyChanged(currentObject);
-            if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto cmd = std::make_unique<PropertyChange>(canvas, obj, type, QString::fromStdString(oldVal), QString::fromStdString(newVal));
+                cmd->redo();
+                emit commandGenerated(cmd.release());
+                emit propertyChanged(currentObject);
+                if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+            }
         });
         topLayout->addWidget(btn);
     }
@@ -268,11 +341,18 @@ void PropertyPanel::addColorSection(QLayout* layout, const QString& label, bool 
         if (selected.isValid()) {
             std::string newVal = selected.name(QColor::HexArgb).toStdString();
             if (oldVal == newVal) return;
-            PropertyChange* cmd = new PropertyChange(canvas, currentObject, (isStroke ? Property::STROKECOLOR : Property::FILLCOLOR), QString::fromStdString(oldVal), QString::fromStdString(newVal));
-            emit commandGenerated(cmd);
-            cmd->redo();
-            emit propertyChanged(currentObject);
-            if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+            
+            std::shared_ptr<GraphicsObject> obj = nullptr;
+            const auto& shapes = canvas->getShapes();
+            for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+            
+            if(obj) {
+                auto cmd = std::make_unique<PropertyChange>(canvas, obj, (isStroke ? Property::STROKECOLOR : Property::FILLCOLOR), QString::fromStdString(oldVal), QString::fromStdString(newVal));
+                cmd->redo();
+                emit commandGenerated(cmd.release());
+                emit propertyChanged(currentObject);
+                if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+            }
         }
     });
     topLayout->addWidget(customBtn);
@@ -290,10 +370,17 @@ void PropertyPanel::addColorSection(QLayout* layout, const QString& label, bool 
         std::string oldVal = isStroke ? initialStrokeColor : initialFillColor;
         std::string newVal = hex.toStdString();
         if (oldVal == newVal) return;
-        PropertyChange* cmd = new PropertyChange(canvas, currentObject, isStroke ? Property::STROKECOLOR : Property::FILLCOLOR, QString::fromStdString(oldVal), QString::fromStdString(newVal));
-        emit commandGenerated(cmd);
-        cmd->redo();
-        if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+        
+        std::shared_ptr<GraphicsObject> obj = nullptr;
+        const auto& shapes = canvas->getShapes();
+        for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
+        
+        if(obj) {
+            auto cmd = std::make_unique<PropertyChange>(canvas, obj, isStroke ? Property::STROKECOLOR : Property::FILLCOLOR, QString::fromStdString(oldVal), QString::fromStdString(newVal));
+            cmd->redo();
+            emit commandGenerated(cmd.release());
+            if (isStroke) initialStrokeColor = newVal; else initialFillColor = newVal;
+        }
     });
     layout->addWidget(spectrum);
 }
