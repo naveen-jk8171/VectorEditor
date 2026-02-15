@@ -6,6 +6,7 @@
 #include <QPen>
 #include <QColor>
 #include <QBrush>
+#include <QVariant>
 
 class Rectangle : public GraphicsObject {
 public:

@@ -13,6 +13,14 @@
 #include "gui/color_spectrum_widget.h"
 #include "gui/canvas.h"
 #include "gui/color_spectrum_widget.h"
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include "model/rect.h"
+#include "model/circle.h"
+#include "model/text.h"
+#include "model/hexagon.h"
+#include "commands/property_change.h"
 
 class QLayout;
 class Command;
@@ -35,6 +43,10 @@ signals:
 private:
     void addColorSection(QLayout* layout, const QString& label, bool isStroke);
     void setPanel();
+    void rectangleConnections();
+    void circleConnections();
+    void textConnections();
+    void hexConnections();
     ColorSpectrumWidget* strokeSpectrum;
     ColorSpectrumWidget* fillSpectrum;
     Canvas* canvas;

@@ -498,22 +498,157 @@
 			null
 		],
 		[
-			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas.cpp",
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/canvas.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget.cpp",
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/bring_to_front.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window.cpp",
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/copy.cpp",
 			"MU",
 			null
 		],
 		[
-			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel.cpp",
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/cut.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/delete_shapes.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/others.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/paste.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/send_to_back.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/key_press_event/key_press_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_double_click_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_move_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_press_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_release_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/wheel_event.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/shape_organizer/shape_organizer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/undo_redo_handle/undo_redo.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/color_spectrum_widget.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/mouse_events.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/setup.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/commands.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/connections.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/main_window.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/other_functions.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/circle_connections.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/color_section.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/hex_connections.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/property_panel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/rectangle_connections.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/set_target.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/setup.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/text_connections.cpp",
 			"MU",
 			null
 		],
@@ -544,6 +679,56 @@
 		],
 		[
 			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/freehand.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/clone.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/draw.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/get_position.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/move.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/circle.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/hexagon.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/line.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/rect.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/text.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/to_svg.cpp",
 			"MU",
 			null
 		],

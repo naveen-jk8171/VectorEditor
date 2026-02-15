@@ -6,10 +6,16 @@
 #include <QColor>
 #include <QBrush>
 #include <QGraphicsPolygonItem>
+#include <QVariant>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <utility>
+#include <iostream>
 
 class Hexagon : public GraphicsObject {
 public:
-    double cx, cy, r;
+    double cx, cy, r = 0;
     void setAttribute(const std::string& key, const std::string& value) override;
     QGraphicsItem* draw(QGraphicsScene* scene) override;
     std::string toSVG() const override;

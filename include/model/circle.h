@@ -6,10 +6,11 @@
 #include <QPen>
 #include <QColor>
 #include <QBrush>
+#include <QVariant>
 
 class Circle : public GraphicsObject {
 public:
-    double cx, cy, r;
+    double cx, cy, r = 0;
     void setAttribute(const std::string& key, const std::string& value) override;
     QGraphicsItem* draw(QGraphicsScene* scene) override;
     std::string toSVG() const override;

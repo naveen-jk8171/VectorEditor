@@ -119,6 +119,26 @@ build CMakeFiles/VectorEditor.dir/src/model/freehand.cpp.o: CXX_COMPILER__Vector
   OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
+build CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/hexagon.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/text.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/text.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/text.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
 build CMakeFiles/VectorEditor.dir/src/io/xml_parser.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/io/xml_parser.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
@@ -139,44 +159,194 @@ build CMakeFiles/VectorEditor.dir/src/io/svg_writer.cpp.o: CXX_COMPILER__VectorE
   OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/io
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/gui/main_window.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/main_window/main_window.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/main_window.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/main_window.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/main_window/main_window.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/main_window
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/gui/canvas.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/canvas.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/canvas.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/canvas.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/gui/property_panel.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_press_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_press_event.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_press_event.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_move_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_move_event.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_move_event.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_release_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_release_event.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_release_event.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_double_click_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/mouse_double_click_event.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_double_click_event.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/wheel_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/mouse_events/wheel_event.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/wheel_event.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/undo_redo_handle/undo_redo.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/undo_redo_handle/undo_redo.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/undo_redo_handle/undo_redo.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/undo_redo_handle
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/property_panel.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/property_panel.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/property_panel.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/color_section.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/color_section.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/color_section.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/set_target.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/set_target.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/set_target.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/setup.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/setup.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/setup.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/rectangle_connections.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/rectangle_connections.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/rectangle_connections.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/circle_connections.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/circle_connections.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/circle_connections.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/text_connections.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/text_connections.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/text_connections.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/property_panel/hex_connections.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/property_panel/hex_connections.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/property_panel/hex_connections.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/property_panel
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/color_spectrum_widget.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/color_spectrum_widget.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/color_spectrum_widget.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/setup.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/setup.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/setup.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/mouse_events.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/color_spectrum_widget/mouse_events.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/mouse_events.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
 build CMakeFiles/VectorEditor.dir/src/gui/selection_handle.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/selection_handle.cpp || cmake_object_order_depends_target_VectorEditor
@@ -259,24 +429,224 @@ build CMakeFiles/VectorEditor.dir/src/commands/property_change.cpp.o: CXX_COMPIL
   OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/commands
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/hexagon.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/key_press_event/key_press_event.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/key_press_event/key_press_event.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/key_press_event/key_press_event.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/key_press_event
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
-build CMakeFiles/VectorEditor.dir/src/model/text.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/text.cpp || cmake_object_order_depends_target_VectorEditor
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/shape_organizer/shape_organizer.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/shape_organizer/shape_organizer.cpp || cmake_object_order_depends_target_VectorEditor
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/text.cpp.o.d
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/shape_organizer/shape_organizer.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64
   INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
   OBJECT_DIR = CMakeFiles/VectorEditor.dir
-  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/shape_organizer
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/bring_to_front.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/bring_to_front.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/bring_to_front.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/send_to_back.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/send_to_back.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/send_to_back.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/delete_shapes.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/delete_shapes.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/delete_shapes.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/cut.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/cut.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/cut.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/copy.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/copy.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/copy.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/paste.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/paste.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/paste.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/others.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/canvas/commands/others.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/others.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/canvas/commands
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/main_window/commands.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/commands.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/main_window/commands.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/main_window
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/main_window/connections.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/connections.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/main_window/connections.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/main_window
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/gui/main_window/other_functions.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/gui/main_window/other_functions.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/gui/main_window/other_functions.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/gui/main_window
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/clone.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/clone.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/clone.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/draw.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/draw.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/draw.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/get_position.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/get_position.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/get_position.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/move.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/move.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/move.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/to_svg.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/to_svg.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/to_svg.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/resize/circle.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/circle.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/resize/circle.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions/resize
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/resize/rect.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/rect.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/resize/rect.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions/resize
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/resize/line.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/line.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/resize/line.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions/resize
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/resize/hexagon.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/hexagon.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/resize/hexagon.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions/resize
+  TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
+
+build CMakeFiles/VectorEditor.dir/src/model/functions/resize/text.cpp.o: CXX_COMPILER__VectorEditor_unscanned_Debug /Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/src/model/functions/resize/text.cpp || cmake_object_order_depends_target_VectorEditor
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/VectorEditor.dir/src/model/functions/resize/text.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64
+  INCLUDES = -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/build/VectorEditor_autogen/include -I/Users/naveen_jk8171/Library/CloudStorage/OneDrive-IITDelhi/IITD/SEM_4/COP290/Assignments/0/include -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/VectorEditor.dir
+  OBJECT_FILE_DIR = CMakeFiles/VectorEditor.dir/src/model/functions/resize
   TARGET_SUPPORT_DIR = CMakeFiles/VectorEditor.dir
 
 
@@ -287,7 +657,7 @@ build CMakeFiles/VectorEditor.dir/src/model/text.cpp.o: CXX_COMPILER__VectorEdit
 #############################################
 # Link the executable VectorEditor.app/Contents/MacOS/VectorEditor
 
-build VectorEditor.app/Contents/MacOS/VectorEditor: CXX_EXECUTABLE_LINKER__VectorEditor_Debug CMakeFiles/VectorEditor.dir/VectorEditor_autogen/mocs_compilation.cpp.o CMakeFiles/VectorEditor.dir/src/main.cpp.o CMakeFiles/VectorEditor.dir/src/model/circle.cpp.o CMakeFiles/VectorEditor.dir/src/model/rect.cpp.o CMakeFiles/VectorEditor.dir/src/model/line.cpp.o CMakeFiles/VectorEditor.dir/src/model/graphics_object.cpp.o CMakeFiles/VectorEditor.dir/src/model/freehand.cpp.o CMakeFiles/VectorEditor.dir/src/io/xml_parser.cpp.o CMakeFiles/VectorEditor.dir/src/io/svg_writer.cpp.o CMakeFiles/VectorEditor.dir/src/gui/main_window.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel.cpp.o CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget.cpp.o CMakeFiles/VectorEditor.dir/src/gui/selection_handle.cpp.o CMakeFiles/VectorEditor.dir/src/commands/command.cpp.o CMakeFiles/VectorEditor.dir/src/commands/add_shape.cpp.o CMakeFiles/VectorEditor.dir/src/commands/move.cpp.o CMakeFiles/VectorEditor.dir/src/commands/delete.cpp.o CMakeFiles/VectorEditor.dir/src/commands/paste.cpp.o CMakeFiles/VectorEditor.dir/src/commands/cut.cpp.o CMakeFiles/VectorEditor.dir/src/commands/property_change.cpp.o CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o CMakeFiles/VectorEditor.dir/src/model/text.cpp.o | /opt/homebrew/opt/qt/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/opt/qt/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/opt/qt/lib/QtCore.framework/Versions/A/QtCore || VectorEditor_autogen VectorEditor_autogen_timestamp_deps
+build VectorEditor.app/Contents/MacOS/VectorEditor: CXX_EXECUTABLE_LINKER__VectorEditor_Debug CMakeFiles/VectorEditor.dir/VectorEditor_autogen/mocs_compilation.cpp.o CMakeFiles/VectorEditor.dir/src/main.cpp.o CMakeFiles/VectorEditor.dir/src/model/circle.cpp.o CMakeFiles/VectorEditor.dir/src/model/rect.cpp.o CMakeFiles/VectorEditor.dir/src/model/line.cpp.o CMakeFiles/VectorEditor.dir/src/model/graphics_object.cpp.o CMakeFiles/VectorEditor.dir/src/model/freehand.cpp.o CMakeFiles/VectorEditor.dir/src/model/hexagon.cpp.o CMakeFiles/VectorEditor.dir/src/model/text.cpp.o CMakeFiles/VectorEditor.dir/src/io/xml_parser.cpp.o CMakeFiles/VectorEditor.dir/src/io/svg_writer.cpp.o CMakeFiles/VectorEditor.dir/src/gui/main_window/main_window.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/canvas.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_press_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_move_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_release_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/mouse_double_click_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/mouse_events/wheel_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/undo_redo_handle/undo_redo.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/property_panel.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/color_section.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/set_target.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/setup.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/rectangle_connections.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/circle_connections.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/text_connections.cpp.o CMakeFiles/VectorEditor.dir/src/gui/property_panel/hex_connections.cpp.o CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/color_spectrum_widget.cpp.o CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/setup.cpp.o CMakeFiles/VectorEditor.dir/src/gui/color_spectrum_widget/mouse_events.cpp.o CMakeFiles/VectorEditor.dir/src/gui/selection_handle.cpp.o CMakeFiles/VectorEditor.dir/src/commands/command.cpp.o CMakeFiles/VectorEditor.dir/src/commands/add_shape.cpp.o CMakeFiles/VectorEditor.dir/src/commands/move.cpp.o CMakeFiles/VectorEditor.dir/src/commands/delete.cpp.o CMakeFiles/VectorEditor.dir/src/commands/paste.cpp.o CMakeFiles/VectorEditor.dir/src/commands/cut.cpp.o CMakeFiles/VectorEditor.dir/src/commands/property_change.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/key_press_event/key_press_event.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/shape_organizer/shape_organizer.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/bring_to_front.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/send_to_back.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/delete_shapes.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/cut.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/copy.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/paste.cpp.o CMakeFiles/VectorEditor.dir/src/gui/canvas/commands/others.cpp.o CMakeFiles/VectorEditor.dir/src/gui/main_window/commands.cpp.o CMakeFiles/VectorEditor.dir/src/gui/main_window/connections.cpp.o CMakeFiles/VectorEditor.dir/src/gui/main_window/other_functions.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/clone.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/draw.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/get_position.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/move.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/to_svg.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/resize/circle.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/resize/rect.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/resize/line.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/resize/hexagon.cpp.o CMakeFiles/VectorEditor.dir/src/model/functions/resize/text.cpp.o | /opt/homebrew/opt/qt/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/opt/qt/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/opt/qt/lib/QtCore.framework/Versions/A/QtCore || VectorEditor_autogen VectorEditor_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names

@@ -6,6 +6,13 @@
 #include <QColor>
 #include <QBrush>
 #include <vector>
+#include <QVariant>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <utility>
+#include <iostream>
+#include <algorithm>
 
 class FreeHand : public GraphicsObject {
 public:

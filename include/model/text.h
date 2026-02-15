@@ -3,15 +3,18 @@
 #include "model/graphics_object.h"
 #include <QGraphicsScene>
 #include <QFont>
-
-class Canvas;
+#include <QGraphicsTextItem>
+#include <QFont>
+#include <QTextDocument>
+#include <QVariant>
+#include <QFontMetricsF>
 
 class Text : public GraphicsObject {
 public:
     double x = 0, y = 0, width = -1;
     std::string content = "";
     std::string fontFamily = "Arial";
-    int fontSize = 20;
+    int fontSize = 10;
     bool showBorder = false;
     void setAttribute(const std::string& key, const std::string& value) override;
     QGraphicsItem* draw(QGraphicsScene* scene) override;

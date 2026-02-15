@@ -3,6 +3,10 @@
 #include <QWidget>
 #include <QPaintEvent>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QLinearGradient>
+#include <algorithm>
+#include <QPainterPath>
 
 class ColorSpectrumWidget : public QWidget {
     Q_OBJECT

@@ -6,6 +6,7 @@
 #include <QPen>
 #include <QColor>
 #include <QBrush>
+#include <QVariant>
 
 class Line : public GraphicsObject {
 public:

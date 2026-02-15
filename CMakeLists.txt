@@ -23,16 +23,33 @@ set(SOURCES
     src/model/line.cpp
     src/model/graphics_object.cpp
     src/model/freehand.cpp
+    src/model/hexagon.cpp
+    src/model/text.cpp
     
     # IO (Parsing/Saving)
     src/io/xml_parser.cpp
     src/io/svg_writer.cpp
     
     # GUI (Interface)
-    src/gui/main_window.cpp
-    src/gui/canvas.cpp
-    src/gui/property_panel.cpp
-    src/gui/color_spectrum_widget.cpp
+    src/gui/main_window/main_window.cpp
+    src/gui/canvas/canvas.cpp
+    src/gui/canvas/mouse_events/mouse_press_event.cpp
+    src/gui/canvas/mouse_events/mouse_move_event.cpp
+    src/gui/canvas/mouse_events/mouse_release_event.cpp
+    src/gui/canvas/mouse_events/mouse_double_click_event.cpp
+    src/gui/canvas/mouse_events/wheel_event.cpp
+    src/gui/canvas/undo_redo_handle/undo_redo.cpp
+    src/gui/property_panel/property_panel.cpp
+    src/gui/property_panel/color_section.cpp
+    src/gui/property_panel/set_target.cpp
+    src/gui/property_panel/setup.cpp
+    src/gui/property_panel/rectangle_connections.cpp
+    src/gui/property_panel/circle_connections.cpp
+    src/gui/property_panel/text_connections.cpp
+    src/gui/property_panel/hex_connections.cpp
+    src/gui/color_spectrum_widget/color_spectrum_widget.cpp
+    src/gui/color_spectrum_widget/setup.cpp
+    src/gui/color_spectrum_widget/mouse_events.cpp
     src/gui/selection_handle.cpp
     src/commands/command.cpp
     src/commands/add_shape.cpp
@@ -41,8 +58,28 @@ set(SOURCES
     src/commands/paste.cpp
     src/commands/cut.cpp
     src/commands/property_change.cpp
-    src/model/hexagon.cpp
-    src/model/text.cpp
+    src/gui/canvas/key_press_event/key_press_event.cpp
+    src/gui/canvas/shape_organizer/shape_organizer.cpp
+    src/gui/canvas/commands/bring_to_front.cpp
+    src/gui/canvas/commands/send_to_back.cpp
+    src/gui/canvas/commands/delete_shapes.cpp
+    src/gui/canvas/commands/cut.cpp
+    src/gui/canvas/commands/copy.cpp
+    src/gui/canvas/commands/paste.cpp
+    src/gui/canvas/commands/others.cpp
+    src/gui/main_window/commands.cpp
+    src/gui/main_window/connections.cpp
+    src/gui/main_window/other_functions.cpp
+    src/model/functions/clone.cpp
+    src/model/functions/draw.cpp
+    src/model/functions/get_position.cpp
+    src/model/functions/move.cpp
+    src/model/functions/to_svg.cpp
+    src/model/functions/resize/circle.cpp
+    src/model/functions/resize/rect.cpp
+    src/model/functions/resize/line.cpp
+    src/model/functions/resize/hexagon.cpp
+    src/model/functions/resize/text.cpp
 
     # Header Files
     include/gui/main_window.h

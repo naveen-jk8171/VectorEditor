@@ -11,8 +11,8 @@ class QGraphicsItem;
 
 class GraphicsObject{
 public:
-    double width, height, stroke_width;
-    std::string stroke_color = "", fill_color = "";
+    double width = 0, height = 0, stroke_width = 2;
+    std::string stroke_color = "black", fill_color = "transparent";
     virtual ~GraphicsObject() = default;
     virtual void setAttribute(const std::string& key, const std::string& value) = 0;
     virtual QGraphicsItem* draw(QGraphicsScene* scene) = 0;

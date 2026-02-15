@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../include/gui/main_window.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>

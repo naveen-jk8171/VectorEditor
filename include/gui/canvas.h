@@ -14,6 +14,24 @@
 #include "gui/selection_handle.h"
 #include "model/text.h"
 #include <set>
+#include "model/circle.h"
+#include "model/rect.h"
+#include "model/line.h"
+#include "model/hexagon.h"
+#include "model/freehand.h"
+#include "math.h"
+#include <QDebug>
+#include <QList>
+#include <QScrollBar>
+#include <algorithm>
+#include "commands/move.h"
+#include "commands/paste.h"
+#include "commands/delete.h"
+#include "commands/cut.h"
+#include <iostream>
+#include <QTextCursor>
+#include <QTextDocument>
+#include <QCoreApplication>
 
 enum class ToolType {
     SELECT,
@@ -85,5 +103,5 @@ private:
     std::stack<std::unique_ptr<Command>> redoStack;
     QPointF dragStartPos;
     std::unordered_map<std::shared_ptr<GraphicsObject>, QPointF> initialItemPositions;
-    std::set<Text*> emptyTextItems;
+    std::set<std::shared_ptr<GraphicsObject>> emptyTextItems;
 };
