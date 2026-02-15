@@ -5,43 +5,42 @@
 #include "model/rect.h"
 #include "model/text.h"
 
-void Circle::move(const QPointF& pos) {
-    cx = pos.x();
-    cy = pos.y();
+void Circle::move(const QPointF& pos) { // Move logic for Circle
+    cx = pos.x(); // Update center X
+    cy = pos.y(); // Update center Y
 }
 
-void FreeHand::move(const QPointF& pos) {
-    if (points.empty()) return;
-    QPointF currPos = getPosition();
-    double dx = pos.x() - currPos.x();
-    double dy = pos.y() - currPos.y();
-    for (auto& p : points) {
-        p.rx() += dx;
-        p.ry() += dy;
+void FreeHand::move(const QPointF& pos) { // Move logic for Freehand
+    if (points.empty()) return; // Check for empty
+    QPointF currPos = getPosition(); // Get current top-left
+    double dx = pos.x() - currPos.x(); // Calculate delta X
+    double dy = pos.y() - currPos.y(); // Calculate delta Y
+    for (auto& p : points) { // Shift all points
+        p.rx() += dx; // Update X
+        p.ry() += dy; // Update Y
     }
 }
 
-void Hexagon::move(const QPointF& pos) {
-    cx = pos.x();
-    cy = pos.y();
+void Hexagon::move(const QPointF& pos) { // Move logic for Hexagon
+    cx = pos.x(); // Update center X
+    cy = pos.y(); // Update center Y
 }
 
-void Line::move(const QPointF& pos) {
-    double dx = x2-x1;
-    double dy = y2-y1;
-    x1 = pos.x();
-    y1 = pos.y();
-    x2 = x1 + dx;
-    y2 = y1 + dy;
+void Line::move(const QPointF& pos) { // Move logic for Line
+    double dx = x2-x1; // Calculate width
+    double dy = y2-y1; // Calculate height
+    x1 = pos.x(); // Update start X
+    y1 = pos.y(); // Update start Y
+    x2 = x1 + dx; // Update end X
+    y2 = y1 + dy; // Update end Y
 }
 
-void Rectangle::move(const QPointF& pos) {
-    x = pos.x();
-    y = pos.y();
+void Rectangle::move(const QPointF& pos) { // Move logic for Rectangle
+    x = pos.x(); // Update top-left X
+    y = pos.y(); // Update top-left Y
 }
 
-void Text::move(const QPointF& pos) {
-    x = pos.x();
-    y = pos.y();
+void Text::move(const QPointF& pos) { // Move logic for Text
+    x = pos.x(); // Update top-left X
+    y = pos.y(); // Update top-left Y
 }
-

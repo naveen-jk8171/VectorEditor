@@ -4,12 +4,12 @@
 #include "model/graphics_object.h"
 #include "gui/canvas.h"
 
-class AddShape : public Command {
+class AddShape : public Command { // command to handle adding new shapes
 public:
     AddShape(Canvas* canvas, std::shared_ptr<GraphicsObject> obj);
-    void undo() override;
-    void redo() override;
+    void undo() override; // Removes the added shape
+    void redo() override; // Re-adds the shape to the canvas
 private:
     Canvas* canvas;
-    std::shared_ptr<GraphicsObject> obj;
+    std::shared_ptr<GraphicsObject> obj; // Pointer to the shape added
 };

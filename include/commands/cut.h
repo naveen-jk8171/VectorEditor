@@ -10,7 +10,7 @@ public:
     Cut(Canvas* canvas, std::vector<std::shared_ptr<GraphicsObject>>& objs);
     void undo() override;
     void redo() override;
-    std::vector<std::shared_ptr<GraphicsObject>> objs;
 private:
+    std::vector<std::shared_ptr<GraphicsObject>> objs; // objects being cut
     Canvas* canvas;
 };

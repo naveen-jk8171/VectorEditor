@@ -1,10 +1,10 @@
 #include "gui/property_panel.h"
 
-void PropertyPanel::setPanel() {
-    noPanel = new QWidget();
+void PropertyPanel::setPanel() { // Initialize dynamic panel sections 
+    noPanel = new QWidget(); // Empty panel
     panel->addWidget(noPanel);
 
-    rectPanel = new QWidget();
+    rectPanel = new QWidget(); // Rectangle properties
     QFormLayout* rectLayout = new QFormLayout(rectPanel);
     rectLayout->setLabelAlignment(Qt::AlignRight);
     rectLayout->setContentsMargins(0, 10, 0, 10);
@@ -26,7 +26,7 @@ void PropertyPanel::setPanel() {
     rectLayout->addRow("Height: ", rHeight);
     panel->addWidget(rectPanel);
 
-    circPanel = new QWidget();
+    circPanel = new QWidget(); // Circle properties
     QFormLayout* circlLayout = new QFormLayout(circPanel);
     circlLayout->setLabelAlignment(Qt::AlignRight);
     cr = new QDoubleSpinBox();
@@ -34,7 +34,7 @@ void PropertyPanel::setPanel() {
     circlLayout->addRow("Radius: ", cr);
     panel->addWidget(circPanel);
 
-    textPanel = new QWidget();
+    textPanel = new QWidget(); // Text properties
     QFormLayout* textLayout = new QFormLayout(textPanel);
     textLayout->setLabelAlignment(Qt::AlignRight);
     txtContent = new QLineEdit();
@@ -44,7 +44,7 @@ void PropertyPanel::setPanel() {
     textLayout->addRow("Font Size: ", fontSizeEdit);
     panel->addWidget(textPanel);
 
-    hexPanel = new QWidget();
+    hexPanel = new QWidget(); // Hexagon properties
     QFormLayout* hexLayout = new QFormLayout(hexPanel);
     hexLayout->setLabelAlignment(Qt::AlignRight);
     hr = new QDoubleSpinBox();
@@ -52,7 +52,7 @@ void PropertyPanel::setPanel() {
     hexLayout->addRow("Radius: ", hr);
     panel->addWidget(hexPanel);
 
-    rectangleConnections();
+    rectangleConnections(); // Connect signals
     circleConnections();
     textConnections();
     hexConnections();

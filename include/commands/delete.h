@@ -8,9 +8,9 @@
 class Delete : public Command {
 public:
     Delete(Canvas* canvas, std::vector<std::shared_ptr<GraphicsObject>>& objs);
-    void undo() override;
-    void redo() override;
+    void undo() override; // Adds deleted objects back to canvas
+    void redo() override; // Removes objects from canvas again
 private:
-    std::vector<std::shared_ptr<GraphicsObject>> objs;
+    std::vector<std::shared_ptr<GraphicsObject>> objs; // Objects to delete
     Canvas* canvas;
 };

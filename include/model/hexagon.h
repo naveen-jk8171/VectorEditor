@@ -23,7 +23,7 @@ public:
     void resizeShape(const QPointF& currPos, const QPointF& lastPos, SelectionHandles::HandlePosition handle) override;
     void move(const QPointF& pos) override;
     QPointF getPosition() const override;
-    QPolygonF getPoints() const;
-    void pointsToParam(const std::vector<std::pair<double, double>>& points);
-    void strToPoint(const std::string& pointsStr);
+    QPolygonF getPoints() const; // calculates the six points of shape
+    void pointsToParam(const std::vector<std::pair<double, double>>& points); // convert points to parameters
+    void strToPoint(const std::string& pointsStr); // convert string of points from svg file to real points
 };

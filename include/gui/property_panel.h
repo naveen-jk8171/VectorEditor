@@ -29,50 +29,43 @@ class PropertyPanel : public QWidget {
     Q_OBJECT
 public:
     explicit PropertyPanel(Canvas* canvas, QWidget* parent = nullptr);
-    
-    // Change to raw pointer since panel doesn't own object, it just edits it
-    void setTargetShape(GraphicsObject* shape);
+    void setTargetShape(GraphicsObject* shape); // Sets the selected object properties on panel
 
 signals:
-    // Raw pointer signals (Qt signals/slots with smart pointers can be tricky, 
-    // but passing raw pointer for identification is standard)
-    void propertyChanged(GraphicsObject* shape);
-    // Passing ownership of command
-    void commandGenerated(Command* command);
+    void propertyChanged(GraphicsObject* shape); // Signal when property changes
+    void commandGenerated(Command* command); // Signal when a command is created (for undo redo thing)
 
 private:
-    void addColorSection(QLayout* layout, const QString& label, bool isStroke);
-    void setPanel();
-    void rectangleConnections();
-    void circleConnections();
-    void textConnections();
-    void hexConnections();
-    ColorSpectrumWidget* strokeSpectrum;
-    ColorSpectrumWidget* fillSpectrum;
-    Canvas* canvas;
-    QDoubleSpinBox* strokeWidthEdit;
-    int initialStrokeWidth;
-    std::string initialStrokeColor, initialFillColor;
-    QStackedWidget* panel;
-    QWidget* noPanel;
-    QWidget* rectPanel;
-    QDoubleSpinBox* rxSpin;
-    QDoubleSpinBox* rySpin;
-    QDoubleSpinBox* rWidth;
-    QDoubleSpinBox* rHeight;
-    double initialRx, initialRy, initialRWidth, initialRHeight;
-    QWidget* circPanel;
-    QDoubleSpinBox* cr;
-    double initialCircleR;
-    QWidget* textPanel;
-    QLineEdit* txtContent;
-    QSpinBox* fontSizeEdit;
-    std::string initialText;
-    int initialFontSize;
-    QWidget* hexPanel;
-    QDoubleSpinBox* hr;
-    double initialHexR;
-    
-    // Raw pointer to current object being edited (ownership remains with Canvas/Model)
-    GraphicsObject* currentObject = nullptr;
+    void addColorSection(QLayout* layout, const QString& label, bool isStroke); // adds color section
+    void setPanel(); // Sets up the property panel
+    void rectangleConnections(); // Connects rectangle properties
+    void circleConnections(); // Connects circle properties
+    void textConnections(); // Connects text properties
+    void hexConnections(); // Connects hexagon properties
+    ColorSpectrumWidget* strokeSpectrum; // Widget for stroke color
+    ColorSpectrumWidget* fillSpectrum; // Widget for fill color
+    Canvas* canvas; // Reference to canvas
+    QDoubleSpinBox* strokeWidthEdit; // Input for stroke width
+    int initialStrokeWidth; // Stores initial stroke width for undo
+    std::string initialStrokeColor, initialFillColor; // Stores initial colors
+    QStackedWidget* panel; // Stack for shape-specific panels
+    QWidget* noPanel; // Empty panel
+    QWidget* rectPanel; // Rectangle property panel
+    QDoubleSpinBox* rxSpin; // Input for x-radius
+    QDoubleSpinBox* rySpin; // Input for y-radius
+    QDoubleSpinBox* rWidth; // Input for width
+    QDoubleSpinBox* rHeight; // Input for height
+    double initialRx, initialRy, initialRWidth, initialRHeight; // Initial rect values
+    QWidget* circPanel; // Circle property panel
+    QDoubleSpinBox* cr; // Input for circle radius
+    double initialCircleR; // Initial circle radius
+    QWidget* textPanel; // Text property panel
+    QLineEdit* txtContent; // Input for text content
+    QSpinBox* fontSizeEdit; // Input for font size
+    std::string initialText; // Initial text content
+    int initialFontSize; // Initial font size
+    QWidget* hexPanel; // Hexagon property panel
+    QDoubleSpinBox* hr; // Input for hexagon radius
+    double initialHexR; // Initial hexagon radius
+    GraphicsObject* currentObject = nullptr; // Currently selected object
 };

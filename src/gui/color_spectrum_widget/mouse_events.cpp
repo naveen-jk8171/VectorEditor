@@ -9,34 +9,34 @@ void ColorSpectrumWidget::mouseMoveEvent(QMouseEvent* event) {
 }
 
 void ColorSpectrumWidget::handleMouse(int x, int y) {
-    m_selectedX = std::max(0, std::min(x, width()));
-    if (y > height() / 2) {
-        m_isGrayScale = true;
+    m_selectedX = std::max(0, std::min(x, width())); // make x within widget bounds 
+    if (y > height() / 2) { // Check if grayscale area was clicked
+        m_isGrayScale = true; // Grayscale mode
     } else {
-        m_isGrayScale = false;
+        m_isGrayScale = false; // Color mode
     }
     QColor finalColor;
-    double ratio = (double)m_selectedX / width();
-    if (m_isGrayScale) {
-        int val = static_cast<int>(ratio * 255);
-        finalColor = QColor(val, val, val);
+    double ratio = (double)m_selectedX / width(); // calculate ratio (0.0 to 1.0)
+    if (m_isGrayScale) { // grayscale mode
+        int val = static_cast<int>(ratio * 255); // ratio to 0-255 intensity
+        finalColor = QColor(val, val, val); // gray color
     } else {
-        int hue = static_cast<int>(ratio * 359);
-        finalColor = QColor::fromHsv(hue, 255, 255);
+        int hue = static_cast<int>(ratio * 359); // Ratio to 0-359 hue
+        finalColor = QColor::fromHsv(hue, 255, 255); // Create color
     }
-    emit colorSelected(finalColor.name());
-    update();
+    emit colorSelected(finalColor.name()); // Signal color change 
+    update(); // Update little triangle position
 }
 
 void ColorSpectrumWidget::mouseReleaseEvent(QMouseEvent* event) {
     QColor finalColor;
     double ratio = (double)m_selectedX / width();
     if (m_isGrayScale) {
-        int val = static_cast<int>(ratio * 255);
-        finalColor = QColor(val, val, val);
+        int val = static_cast<int>(ratio * 255); // Gray value
+        finalColor = QColor(val, val, val); // Gray color
     } else {
-        int hue = static_cast<int>(ratio * 359);
-        finalColor = QColor::fromHsv(hue, 255, 255);
+        int hue = static_cast<int>(ratio * 359); // hue value
+        finalColor = QColor::fromHsv(hue, 255, 255); // Create color
     }
-    emit colorFinal(finalColor.name());
+    emit colorFinal(finalColor.name()); // Signal final color
 }

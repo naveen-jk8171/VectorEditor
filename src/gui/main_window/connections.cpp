@@ -15,11 +15,9 @@ void MainWindow::connections() {
     connect(deleteAction, &QAction::triggered, canvas, &Canvas::deleteShapes);
     connect(bringToFrontAction, &QAction::triggered, canvas, &Canvas::bringToFront);
     connect(sendToBackAction, &QAction::triggered, canvas, &Canvas::sendToBack);
-    connect(selectAction, &QAction::triggered, this, [this]() {
-            canvas->setTool(ToolType::SELECT);
-        });
+    connect(selectAction, &QAction::triggered, this, [this]() {canvas->setTool(ToolType::SELECT);});
     connect(addRectangleAction, &QAction::triggered, this, [this]() {
-            canvas->getScene()->clearSelection();
+            canvas->getScene()->clearSelection(); // Deselect
             canvas->updateSelectionHandles();
             canvas->setTool(ToolType::RECTANGLE);
         });
@@ -28,12 +26,12 @@ void MainWindow::connections() {
             canvas->updateSelectionHandles();
             canvas->setTool(ToolType::CIRCLE);
         });
-    connect(addLineAction, &QAction::triggered, this, [this]() {
+    connect(addLineAction, &QAction::triggered, this, [this]() { 
             canvas->getScene()->clearSelection();
             canvas->updateSelectionHandles();
             canvas->setTool(ToolType::LINE);
         });
-    connect(addHexagonAction, &QAction::triggered, this, [this]() {
+    connect(addHexagonAction, &QAction::triggered, this, [this]() { 
             canvas->getScene()->clearSelection();
             canvas->updateSelectionHandles();
             canvas->setTool(ToolType::HEXAGON);
@@ -49,18 +47,18 @@ void MainWindow::connections() {
             canvas->setTool(ToolType::TEXT);
         });
     connect(canvas, &Canvas::shapeSelected, this, [this](std::shared_ptr<GraphicsObject> shape) {
-            panel->setTargetShape(shape.get());
+            panel->setTargetShape(shape.get()); // Sync property panel
         });
     connect(panel, &PropertyPanel::propertyChanged, this, [this](GraphicsObject* shapePtr){
             std::shared_ptr<GraphicsObject> shape = nullptr;
             const auto& shapes = canvas->getShapes();
             for(const auto& s : shapes) { if(s.get() == shapePtr) { shape = s; break; } }
             if(shape) {
-                canvas->updateShape(shape);
+                canvas->updateShape(shape); 
                 canvas->updateSelectionHandles();
             }
         });
-    connect(panel, &PropertyPanel::commandGenerated, this, [this](Command* commandPtr) {
-            canvas->pushCommand(std::unique_ptr<Command>(commandPtr));
+    connect(panel, &PropertyPanel::commandGenerated, this, [this](Command* commandPtr) { 
+            canvas->pushCommand(std::unique_ptr<Command>(commandPtr)); // Push to undo stack 
         });
 }

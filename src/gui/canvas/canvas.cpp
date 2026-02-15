@@ -1,17 +1,18 @@
 #include "gui/canvas.h"
 
 Canvas::Canvas(QWidget* parent) : QGraphicsView(parent) {
-    scene = std::make_unique<QGraphicsScene>(this);
-    this->setScene(scene.get());
-    scene->setBackgroundBrush(Qt::white);
-    this->setFocusPolicy(Qt::StrongFocus);
-    this->setRenderHint(QPainter::Antialiasing);
-    current_tool = ToolType::SELECT;
-    this->setDragMode(QGraphicsView::RubberBandDrag);
-    setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
-    setResizeAnchor(QGraphicsView::AnchorUnderMouse);
-    setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
-    scene->setSceneRect(0, 0, 8000, 6000);
+    scene = std::make_unique<QGraphicsScene>(this); // Create scene
+    this->setScene(scene.get()); // Set the scene for this view
+    scene->setBackgroundBrush(Qt::white); // Set canvas background
+    this->setFocusPolicy(Qt::StrongFocus); // Accept keyboard focus
+    this->setRenderHint(QPainter::Antialiasing); // Enable smooth drawing
+    current_tool = ToolType::SELECT; // Default tool
+    this->setDragMode(QGraphicsView::RubberBandDrag); // Enable selection box
+    setTransformationAnchor(QGraphicsView::AnchorUnderMouse); // Zoom towards mouse
+    setResizeAnchor(QGraphicsView::AnchorUnderMouse); // Resize from mouse
+    setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate); // Optimize rendering
+    scene->setSceneRect(0, 0, 8000, 6000); // Large canvas area
+    // initialize variables
     modified = false;
     current_drawing_object = nullptr;
     start_point = QPointF(0, 0);
@@ -26,12 +27,11 @@ Canvas::Canvas(QWidget* parent) : QGraphicsView(parent) {
 }
 
 Canvas::~Canvas() {
-    clipboard.clear();
+    clipboard.clear(); // Clear clipboard
 }
 
 void Canvas::loadShapes(const std::vector<std::shared_ptr<GraphicsObject>>& shapes) {
-    reset();
-    m_shapes = shapes;
+    reset(); // Clear existing canvas
     for (auto& obj : shapes) addShape(obj);
 }
 

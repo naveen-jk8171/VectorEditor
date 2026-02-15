@@ -2,23 +2,23 @@
 
 void PropertyPanel::textConnections() {
     connect(txtContent, &QLineEdit::textChanged, this, [this] (const QString& txt) {
-        if (auto* t = dynamic_cast<Text*>(currentObject)) {
-            t->content = txt.toStdString();
-            emit propertyChanged(currentObject);
+        if (auto* t = dynamic_cast<Text*>(currentObject)) { // If object is Text
+            t->content = txt.toStdString(); // Update content
+            emit propertyChanged(currentObject); // Emit signal
         }
     });
     connect(txtContent, &QLineEdit::editingFinished, this, [this] {
-        if (auto* t = dynamic_cast<Text*>(currentObject)) {
-            std::string newText = txtContent->text().toStdString();
-            if (initialText == newText) return;
-            std::shared_ptr<GraphicsObject> obj = nullptr;
+        if (auto* t = dynamic_cast<Text*>(currentObject)) { // If object is Text
+            std::string newText = txtContent->text().toStdString(); // Get new text
+            if (initialText == newText) return; // If unchanged, return
+            std::shared_ptr<GraphicsObject> obj = nullptr; // Find shared pointer
             const auto& shapes = canvas->getShapes();
             for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
-            if(obj) {
-                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::TEXTCONTENT, QString::fromStdString(initialText), QString::fromStdString(newText));
-                propertyChangeCommand->redo();
-                emit commandGenerated(propertyChangeCommand.release());
-                initialText = newText;
+            if(obj) { // If found
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::TEXTCONTENT, QString::fromStdString(initialText), QString::fromStdString(newText)); // Create command
+                propertyChangeCommand->redo(); // Execute command
+                emit commandGenerated(propertyChangeCommand.release()); // Emit command
+                initialText = newText; // Update initial value
             }
         }
     });
@@ -46,4 +46,3 @@ void PropertyPanel::textConnections() {
         }
     });
 }
-

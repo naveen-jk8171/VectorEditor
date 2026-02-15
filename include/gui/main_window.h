@@ -22,17 +22,17 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
     MainWindow(QWidget* parent = nullptr);
-    Canvas* getCanvas();
-    void newFile();
-    void openFile();
-    bool saveFile();
-    bool saveAsFile();
+    Canvas* getCanvas(); // Returns the canvas widget
+    void newFile(); // Creates a new file
+    void openFile(); // Opens an existing file
+    bool saveFile(); // Saves the current file
+    bool saveAsFile(); // Saves as a new file
 protected:
-    void closeEvent(QCloseEvent* event) override;
-    void keyPressEvent(QKeyEvent* event) override;
+    void closeEvent(QCloseEvent* event) override; // Handles window close event
+    void keyPressEvent(QKeyEvent* event) override; // Handles key press events
 private:
-    bool letNew();
-    void connections();
+    bool letNew(); // Checks if needs to save before opening new file
+    void connections(); // Sets up signal/slot connections
     Canvas* canvas;
     std::string filePath;
     QAction* selectAction;

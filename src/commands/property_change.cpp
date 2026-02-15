@@ -14,7 +14,7 @@ void PropertyChange::redo() {
     setValue(newval);
 }
 
-void PropertyChange::setValue(const QVariant& val) {
+void PropertyChange::setValue(const QVariant& val) { // sets the properties values
     if (!obj) return;
     if (property == Property::STROKECOLOR) {
         obj->stroke_color = val.toString().toStdString();

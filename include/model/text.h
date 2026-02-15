@@ -22,7 +22,6 @@ public:
     GraphicsObject* clone() const override;
     void move(const QPointF& pos) override;
     QPointF getPosition() const override;
-    Canvas* canvas;
     void resizeShape(const QPointF& currPos, const QPointF& lastPos, SelectionHandles::HandlePosition handle) override;
-    QGraphicsTextItem* visualItem;
+    QGraphicsTextItem* visualItem; // pointer to item on screen
 };

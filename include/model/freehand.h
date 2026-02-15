@@ -16,7 +16,7 @@
 
 class FreeHand : public GraphicsObject {
 public:
-    std::vector<QPointF> points;
+    std::vector<QPointF> points; // vector of points in freehand drawing
     QGraphicsItem* draw(QGraphicsScene* scene) override;
     std::string toSVG() const override;
     GraphicsObject* clone() const override;
@@ -24,6 +24,6 @@ public:
     QPointF getPosition() const override;
     void resizeShape(const QPointF& currPos, const QPointF& lastPos, SelectionHandles::HandlePosition handle) override;
     void setAttribute(const std::string& key, const std::string& value) override;
-    void strToPoint(const std::string& pointsStr);
-    QRectF getBoundingBox() const;
+    void strToPoint(const std::string& pointsStr); // converts the string of points (from svg file) to real points
+    QRectF getBoundingBox() const; // calculates the bounding box
 };

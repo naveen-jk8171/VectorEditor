@@ -1,26 +1,26 @@
 #include "gui/property_panel.h"
 
-void PropertyPanel::rectangleConnections() {
+void PropertyPanel::rectangleConnections() { // Connect Rectangle UI elements
     connect(rxSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, [this] (double val) {
-        if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
-            r->rx = val;
-            emit propertyChanged(currentObject);
+        if (auto* r = dynamic_cast<Rectangle*>(currentObject)) { // If object is Rectangle
+            r->rx = val; // Update radius X
+            emit propertyChanged(currentObject); // Emit signal
         }
     });
     connect(rxSpin, &QDoubleSpinBox::editingFinished, this, [this] {
-        if (auto* r = dynamic_cast<Rectangle*>(currentObject)) {
-            double newval = rxSpin->value();
-            if (initialRx == newval) return;
+        if (auto* r = dynamic_cast<Rectangle*>(currentObject)) { // If object is Rectangle
+            double newval = rxSpin->value(); // Get new value
+            if (initialRx == newval) return; // If unchanged, return
             
-            std::shared_ptr<GraphicsObject> obj = nullptr;
+            std::shared_ptr<GraphicsObject> obj = nullptr; // Find shared pointer
             const auto& shapes = canvas->getShapes();
             for(const auto& s : shapes) { if(s.get() == currentObject) { obj = s; break; } }
             
-            if(obj) {
-                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTRX, initialRx, newval);
-                propertyChangeCommand->redo();
-                emit commandGenerated(propertyChangeCommand.release());
-                initialRx = newval;
+            if(obj) { // If found
+                auto propertyChangeCommand = std::make_unique<PropertyChange>(canvas, obj, Property::RECTRX, initialRx, newval); // Create command
+                propertyChangeCommand->redo(); // Execute command
+                emit commandGenerated(propertyChangeCommand.release()); // Emit command
+                initialRx = newval; // Update initial value
             }
         }
     });
